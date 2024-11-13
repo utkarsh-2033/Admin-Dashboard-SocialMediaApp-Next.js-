@@ -1,7 +1,7 @@
 # Admin Dashboard
 
 ## Overview This project is an Admin Dashboard built using React and Next.js. 
-It features various metrics and charts to help administrators monitor and manage different aspects of the
+It features various metrics and charts to help administrators monitor and manage different aspects
 
 ## Features
 - Dashboard: Key metrics and charts.
