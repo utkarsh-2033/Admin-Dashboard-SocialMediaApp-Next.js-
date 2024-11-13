@@ -19,7 +19,7 @@ const ContentMetricsSummary = ({ metrics }) => {
     totalPostBlocked: 0,
     totalPostDeleted: 0,
   };
-  const metrics = metrics || defaultMetrics;
+  let metrics = metrics || defaultMetrics;
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
