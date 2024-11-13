@@ -50,7 +50,7 @@ const UserManagementPage = ({ userMetrics }) => {
 };
 
 export async function getStaticProps() {
-  let userMetrics = {};
+  let userMetrics = { allTime: {}, allTimeUsers: []}
 
   // Dummy user data
   const dummyUsers = [

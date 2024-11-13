@@ -18,7 +18,7 @@ const transformChartData = (chartData) => {
   };
 };
 
-const MetricsSection = ({ title, metrics, chartLabel }) => {
+const MetricsSection = ({ title, metrics = {} , chartLabel }) => {
   const [timeframe, setTimeframe] = useState("daily");
 
   const handleTimeframeChange = (e) => {
@@ -63,9 +63,7 @@ const MetricsSection = ({ title, metrics, chartLabel }) => {
                 <div
                   key={key}
                   className="p-2 bg-gray-600 rounded-lg"
-                >{`${key.replace(/([A-Z])/g, " $1")}: ${
-                  selectedMetrics[key]
-                }`}</div>
+                >{`${key.replace(/([A-Z])/g, " $1")}: ${selectedMetrics[key]}`}</div>
               )
           )}
         </div>

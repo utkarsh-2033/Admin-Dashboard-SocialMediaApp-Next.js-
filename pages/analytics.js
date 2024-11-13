@@ -1,7 +1,14 @@
 import Layout from "../components/Layout/Layout";
 import MetricsSection from "../components/Analytics/MetricsSection";
 
-const AnalyticsPage = ({ dashboardData }) => {
+const AnalyticsPage = ({ dashboardData = {} }) => {
+  const {
+    userMetrics = {},
+    contentMetrics = {},
+    engagementMetrics = {},
+    blockchainMetrics = {},
+  } = dashboardData;
+
   return (
     <Layout>
       <div className="p-6 space-y-6">
@@ -10,28 +17,28 @@ const AnalyticsPage = ({ dashboardData }) => {
           {/* User Metrics */}
           <MetricsSection 
             title="User Metrics"
-            metrics={dashboardData.userMetrics}
+            metrics={userMetrics}
             chartLabel="User Metrics"
           />
           
           {/* Content Metrics */}
           <MetricsSection 
             title="Content Metrics"
-            metrics={dashboardData.contentMetrics}
+            metrics={contentMetrics}
             chartLabel="Content Metrics"
           />
           
           {/* Engagement Metrics */}
           <MetricsSection 
             title="Engagement Metrics"
-            metrics={dashboardData.engagementMetrics}
+            metrics={engagementMetrics}
             chartLabel="Engagement Metrics"
           />
           
           {/* Blockchain Metrics */}
           <MetricsSection 
             title="Blockchain Metrics"
-            metrics={dashboardData.blockchainMetrics}
+            metrics={blockchainMetrics}
             chartLabel="Blockchain Metrics"
           />
         </div>
@@ -41,7 +48,12 @@ const AnalyticsPage = ({ dashboardData }) => {
 };
 
 export async function getStaticProps() {
-  let dashboardData = {};
+  let dashboardData = {
+    userMetrics: {},
+    contentMetrics: {},
+    engagementMetrics: {},
+    blockchainMetrics: {},
+  };
 
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/admin/dashboard`);

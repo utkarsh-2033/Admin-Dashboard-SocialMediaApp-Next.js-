@@ -1,14 +1,14 @@
 import React from 'react';
 import { FaEdit, FaTrashAlt } from 'react-icons/fa';
-import '../../styles/global.css'
+import '../../styles/global.css';
 
-const UserTable = ({ users }) => {
-  if (!users || users.length === 0) {
+const UserTable = ({ users = [] }) => {
+  if (users.length === 0) {
     return <div>No user data available.</div>;
   }
 
   return (
-    <div className="overflow-x-auto w-full"> {/* Ensure horizontal scrolling is enabled */}
+    <div className="overflow-x-auto w-full">
       <table className="min-w-full bg-white">
         <thead>
           <tr>
