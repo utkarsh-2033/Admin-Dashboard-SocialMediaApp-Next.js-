@@ -14,8 +14,31 @@
   }
 }
 
+/* Body styling */
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
+  @apply text-base leading-relaxed;
 }
+
+.scrollbar-hide {
+  -ms-overflow-style: none; 
+  scrollbar-width: none; 
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; 
+}
+
+
+.scrollable-table {
+  overflow-x: auto;
+}
+
+/* global.css */
+.flagged-posts-table {
+  overflow-x: auto;
+}
+
+/* Adjust other necessary global styles */
