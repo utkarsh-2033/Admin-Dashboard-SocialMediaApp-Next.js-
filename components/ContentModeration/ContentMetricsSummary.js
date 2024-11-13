@@ -1,6 +1,26 @@
-import { FaFileAlt, FaTags, FaEye, FaShareSquare, FaComments, FaBan, FaTrash } from 'react-icons/fa';
+import {
+  FaFileAlt,
+  FaTags,
+  FaEye,
+  FaShareSquare,
+  FaComments,
+  FaBan,
+  FaTrash,
+} from "react-icons/fa";
 
 const ContentMetricsSummary = ({ metrics }) => {
+  // Provide default values if metrics is undefined
+  const defaultMetrics = {
+    totalPosts: 0,
+    totalCategory: 0,
+    totalViews: 0,
+    totalPostShares: 0,
+    totalComments: 0,
+    totalPostBlocked: 0,
+    totalPostDeleted: 0,
+  };
+  const safeMetrics = metrics || defaultMetrics;
+
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div className="flex items-center p-4 bg-blue-100 text-blue-800 rounded-lg shadow">

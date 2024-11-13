@@ -22,18 +22,20 @@ const ContentModerationPage = ({ contentMetrics, flaggedPosts }) => {
 };
 
 export async function getStaticProps() {
-  let contentMetrics = {};
+  let contentMetrics = {
+    allTime: {} // Default value
+  };
   let flaggedPosts = [
-{ id: 1, user: 'John Doe', content: 'This is a flagged post content example.', reason: 'Spam', date: '2024-11-10' },
-{ id: 2, user: 'Jane Smith', content: 'This post contains inappropriate content.', reason: 'Inappropriate Content', date: '2024-11-11' },
-{ id: 3, user: 'Sam Green', content: 'This post is flagged for harassment.', reason: 'Harassment', date: '2024-11-12' },
-{ id: 4, user: 'Anna Blue', content: 'This post is flagged for false information.', reason: 'False Information', date: '2024-11-13' },
-{ id: 5, user: 'Mike Brown', content: 'This post is flagged for hate speech.', reason: 'Hate Speech', date: '2024-11-14' },
-{ id: 6, user: 'Chris Red', content: 'This post contains illegal content.', reason: 'Illegal Content', date: '2024-11-15' },
-{ id: 7, user: 'Olivia White', content: 'This post is flagged for spam.', reason: 'Spam', date: '2024-11-16' },
-{ id: 8, user: 'Liam Black', content: 'This post is flagged for offensive language.', reason: 'Offensive Language', date: '2024-11-17' },
-{ id: 9, user: 'Emma Brown', content: 'This post is flagged for promotion of violence.', reason: 'Promotion of Violence', date: '2024-11-18' },
-{ id: 10, user: 'Noah Blue', content: 'This post is flagged for adult content.', reason: 'Adult Content', date: '2024-11-19' },
+    { id: 1, user: 'John Doe', content: 'This is a flagged post content example.', reason: 'Spam', date: '2024-11-10' },
+    { id: 2, user: 'Jane Smith', content: 'This post contains inappropriate content.', reason: 'Inappropriate Content', date: '2024-11-11' },
+    { id: 3, user: 'Sam Green', content: 'This post is flagged for harassment.', reason: 'Harassment', date: '2024-11-12' },
+    { id: 4, user: 'Anna Blue', content: 'This post is flagged for false information.', reason: 'False Information', date: '2024-11-13' },
+    { id: 5, user: 'Mike Brown', content: 'This post is flagged for hate speech.', reason: 'Hate Speech', date: '2024-11-14' },
+    { id: 6, user: 'Chris Red', content: 'This post contains illegal content.', reason: 'Illegal Content', date: '2024-11-15' },
+    { id: 7, user: 'Olivia White', content: 'This post is flagged for spam.', reason: 'Spam', date: '2024-11-16' },
+    { id: 8, user: 'Liam Black', content: 'This post is flagged for offensive language.', reason: 'Offensive Language', date: '2024-11-17' },
+    { id: 9, user: 'Emma Brown', content: 'This post is flagged for promotion of violence.', reason: 'Promotion of Violence', date: '2024-11-18' },
+    { id: 10, user: 'Noah Blue', content: 'This post is flagged for adult content.', reason: 'Adult Content', date: '2024-11-19' },
   ];
 
   try {
@@ -44,7 +46,7 @@ export async function getStaticProps() {
     }
 
     const data = await res.json();
-    contentMetrics = data.dashboard.contentMetrics || {};
+    contentMetrics = data.dashboard.contentMetrics || { allTime: {} }; // Ensure default value
   } catch (error) {
     console.error("Error fetching content metrics:", error);
   }
@@ -58,4 +60,4 @@ export async function getStaticProps() {
   };
 }
 
-export default ContentModerationPage;
+export default ContentModerationPage
