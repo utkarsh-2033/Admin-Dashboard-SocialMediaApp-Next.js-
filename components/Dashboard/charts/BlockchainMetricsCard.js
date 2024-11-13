@@ -1,4 +1,4 @@
-import { FaCoins, FaWallet, FaEthereum } from 'react-icons/fa';
+import { FaCoins, FaEthereum } from 'react-icons/fa';
 import { SiSolana, SiPolygon } from 'react-icons/si';
 
 const BlockchainMetricsCard = ({ metrics }) => {
